@@ -40,7 +40,6 @@ class Group:
             for maptype, maplen, map_last_i, map_i, map_j, map_lead in self.mappings[ci]:
                 type_fragments[maptype].append((maplen, map_lead.seq[map_last_i:map_i]))
                 type_fragments_counts[maptype] += 1
-
             type_consensus = sorted(type_fragments, key=lambda t: len(type_fragments[t]))[-1]
             assert (len(type_fragments[type_consensus]) > 0)
 
