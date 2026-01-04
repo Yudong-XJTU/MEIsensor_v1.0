@@ -55,7 +55,7 @@ class Config(argparse.Namespace):
                                help="VCF output filename to write the called and refined SVs to. If the given filename ends with .gz, the VCF file will be automatically bgzipped and a .tbi index built for it.",
                                required=False)
         main_args.add_argument("--reference", metavar="reference.fasta", type=str,
-                               help="(Optional) Reference sequence the reads were aligned against. To enable output of deletion SV sequences, this parameter must be set.",
+                               help="(Optional) Reference sequence the reads were aligned against.",
                                default=None)
         main_args.add_argument("-t", "--threads", metavar="N", type=int,
                                help="Number of parallel threads to use (speed-up for multi-core CPUs)", default=4)

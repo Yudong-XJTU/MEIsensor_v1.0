@@ -21,5 +21,23 @@ Alternatively, you can follow the steps below to install the environment manuall
 conda create -n MEIsensor python=3.10
 conda activate MEIsensor
 pip install torch==2.7.0 torchvision==0.22.0 torchaudio==2.7.0 --index-url https://download.pytorch.org/whl/cu128
+# Install other packages
 pip install -r requirements.txt
+```
+Check if CUDA is available:
+```bash
+python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())"
+```
+## Usage
+
+```bash
+python src/main.py -i $BAM_PATH -v $OUTPUT_PATH --reference $REF_PATH -m $MODEL_PATH
+```
+### required parameters
+```bash
+-i BAM_PATH                       Absolute path to output
+-v OUTPUT_PATH                    Absolute path to bam file
+--reference REF_PATH(Optional)    Absolute path to your reference genome
+-m MODEL_PATH                     Absolute path to trained model
+-t THREAD                         Number of parallel threads to use (speed-up for multi-core CPUs)
 ```
