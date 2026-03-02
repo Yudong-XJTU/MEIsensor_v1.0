@@ -8,7 +8,7 @@ MEIsensor is a deep-learning based framework for the detection and classificatio
 ## Installation
 We recommend using the conda virtual environment to install MEIsensor (Platform: Linux).
 ```bash
-git clone https://github.com/yourname/MEIsensor.git
+git clone https://github.com/Yudong-XJTU/MEIsensor.git
 cd MEIsensor
 ```
 If your CUDA version is higher than 12.8, you can directly install the environment using:
