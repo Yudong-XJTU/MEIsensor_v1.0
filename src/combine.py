@@ -205,33 +205,3 @@ def resolve(svtype, leadtab_provider, config):
                 yield new_cluster
         else:
             yield cluster
-
-'''
-def resolve_block_groups(svtype, svcands, groups_initial, config):
-
-    # TODO: Remove sorting
-    groups = groups_initial
-    for svcand in sorted(svcands, key=lambda cand: cand.support, reverse=True):
-        best_group = None
-        best_dist = math.inf
-        for group in groups:
-            # TODO: Favor bigger groups in placement
-            dist = abs(group.pos_mean - svcand.pos) + abs(abs(group.len_mean) - abs(
-                svcand.svlen))  # check if group.pos_mean is updated or stays the same for the first SV starting the group
-            minlen = float(min(abs(group.len_mean), abs(svcand.svlen)))
-            if minlen > 0 and dist < best_dist and dist <= config.combine_match * math.sqrt(
-                    minlen) and dist <= config.combine_match_max:
-                if (
-                        not config.combine_separate_intra or svcand.sample_internal_id not in group.included_samples) and group.align_call(
-                        svcand, config.combine_pctseq):
-                    best_group = group
-                    best_dist = dist
-        if best_group is None:
-            groups.append(
-                sv.SVGroup.from_candidate(svcand)
-            )
-        else:
-            best_group.add_candidate(svcand)
-
-    return groups
-'''
